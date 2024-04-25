@@ -1,5 +1,7 @@
-import { Band } from "@prisma/client";
+import { z } from "zod";
+import { bandSchema, bandCreateSchema } from "../schemas";
 
-type BandCreate = Omit<Band, "id">
+type Band = z.infer<typeof bandSchema>;
+type BandCreate = z.infer<typeof bandCreateSchema>;
 
 export { Band, BandCreate };
